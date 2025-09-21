@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Placeholder Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; }
+        .image-section { text-align: center; }
+        button { padding: 10px 20px; margin: 5px; background: #4A90E2; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Generate Lumen Landing Page Images</h1>
+    <div class="container">
+        <div class="image-section">
+            <h3>App Screenshot Mockup</h3>
+            <canvas id="screenshot" width="260" height="560"></canvas>
+            <br>
+            <button onclick="downloadCanvas('screenshot', 'app-screenshot.png')">Download Screenshot</button>
+        </div>
+        
+        <div class="image-section">
+            <h3>App Store Badge</h3>
+            <canvas id="appstore" width="200" height="60"></canvas>
+            <br>
+            <button onclick="downloadCanvas('appstore', 'app-store-badge.png')">Download App Store Badge</button>
+        </div>
+        
+        <div class="image-section">
+            <h3>Google Play Badge</h3>
+            <canvas id="googleplay" width="200" height="60"></canvas>
+            <br>
+            <button onclick="downloadCanvas('googleplay', 'google-play-badge.png')">Download Google Play Badge</button>
+        </div>
+        
+        <div class="image-section">
+            <h3>Meditation Illustration</h3>
+            <canvas id="meditation" width="300" height="300"></canvas>
+            <br>
+            <button onclick="downloadCanvas('meditation', 'meditation-illustration.svg')">Download Meditation</button>
+        </div>
+    </div>
+    
+    <script>
+        // Create app screenshot mockup with royal blue gradient
+        function createScreenshot() {
+            const canvas = document.getElementById('screenshot');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient (royal blue)
+            const gradient = ctx.createLinearGradient(0, 0, 0, 560);
+            gradient.addColorStop(0, '#4A90E2');
+            gradient.addColorStop(1, '#7B68EE');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 260, 560);
+            
+            // Status bar
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(0, 0, 260, 40);
+            ctx.fillStyle = '#333';
+            ctx.font = '12px Arial';
+            ctx.fillText('9:41', 20, 25);
+            ctx.fillText('100%', 220, 25);
+            
+            // Header
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.fillRect(20, 60, 220, 60);
+            ctx.fillStyle = '#333';
+            ctx.font = 'bold 18px Arial';
+            ctx.fillText('Lumen', 30, 85);
+            ctx.font = '14px Arial';
+            ctx.fillText('Your Growth Compass', 30, 105);
+            
+            // Dashboard cards
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(20, 140, 220, 80);
+            ctx.fillRect(20, 240, 105, 80);
+            ctx.fillRect(135, 240, 105, 80);
+            ctx.fillRect(20, 340, 220, 60);
+            
+            // Card content
+            ctx.fillStyle = '#333';
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText("Today's Focus", 30, 165);
+            ctx.font = '12px Arial';
+            ctx.fillText('AI-generated daily activity', 30, 185);
+            
+            ctx.font = 'bold 12px Arial';
+            ctx.fillText('Numerology', 30, 265);
+            ctx.fillText('Tarot Cards', 145, 265);
+            
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText('Premium Trial Active', 30, 365);
+            
+            // Bottom navigation
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.fillRect(0, 500, 260, 60);
+            ctx.fillStyle = '#4A90E2';
+            ctx.font = '10px Arial';
+            ctx.fillText('Dashboard', 30, 535);
+            ctx.fillText('Journal', 90, 535);
+            ctx.fillText('Tarot', 150, 535);
+            ctx.fillText('More', 210, 535);
+        }
+        
+        // Create App Store badge
+        function createAppStoreBadge() {
+            const canvas = document.getElementById('appstore');
+            const ctx = canvas.getContext('2d');
+            
+            // Black background with rounded corners
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, 200, 60);
+            
+            // Apple logo (simplified)
+            ctx.fillStyle = '#fff';
+            ctx.font = '20px Arial';
+            ctx.fillText('🍎', 15, 35);
+            
+            // Text
+            ctx.fillStyle = '#fff';
+            ctx.font = '10px Arial';
+            ctx.fillText('Download on the', 50, 20);
+            ctx.font = 'bold 16px Arial';
+            ctx.fillText('App Store', 50, 40);
+        }
+        
+        // Create Google Play badge
+        function createGooglePlayBadge() {
+            const canvas = document.getElementById('googleplay');
+            const ctx = canvas.getContext('2d');
+            
+            // Black background
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, 200, 60);
+            
+            // Google Play logo (simplified triangle)
+            ctx.fillStyle = '#fff';
+            ctx.font = '20px Arial';
+            ctx.fillText('▶', 15, 35);
+            
+            // Text
+            ctx.fillStyle = '#fff';
+            ctx.font = '10px Arial';
+            ctx.fillText('GET IT ON', 50, 20);
+            ctx.font = 'bold 16px Arial';
+            ctx.fillText('Google Play', 50, 40);
+        }
+        
+        // Create meditation illustration
+        function createMeditationIllustration() {
+            const canvas = document.getElementById('meditation');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createRadialGradient(150, 150, 0, 150, 150, 150);
+            gradient.addColorStop(0, 'rgba(74, 144, 226, 0.1)');
+            gradient.addColorStop(1, 'rgba(123, 104, 238, 0.1)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 300, 300);
+            
+            // Meditation figure (simplified)
+            ctx.fillStyle = '#4A90E2';
+            ctx.beginPath();
+            ctx.arc(150, 120, 30, 0, 2 * Math.PI); // Head
+            ctx.fill();
+            
+            ctx.fillRect(135, 150, 30, 60); // Body
+            
+            // Arms in meditation pose
+            ctx.beginPath();
+            ctx.arc(120, 170, 15, 0, Math.PI);
+            ctx.arc(180, 170, 15, 0, Math.PI);
+            ctx.fill();
+            
+            // Legs crossed
+            ctx.fillRect(120, 210, 60, 20);
+            
+            // Aura/energy circles
+            ctx.strokeStyle = 'rgba(74, 144, 226, 0.3)';
+            ctx.lineWidth = 2;
+            for (let i = 1; i <= 3; i++) {
+                ctx.beginPath();
+                ctx.arc(150, 150, 50 + (i * 20), 0, 2 * Math.PI);
+                ctx.stroke();
+            }
+        }
+        
+        // Download function
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Generate all images on load
+        window.onload = function() {
+            createScreenshot();
+            createAppStoreBadge();
+            createGooglePlayBadge();
+            createMeditationIllustration();
+        };
+    </script>
+</body>
+</html>
