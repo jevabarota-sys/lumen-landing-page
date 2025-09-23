@@ -664,13 +664,13 @@ body {
 }
 
 .footer-link {
-    color: #ccc;
+    color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #4A90E2;
+    color: #87CEEB;
 }
 
 .footer-social {
